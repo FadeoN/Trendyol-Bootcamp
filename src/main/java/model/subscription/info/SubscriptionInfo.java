@@ -1,8 +1,11 @@
 package model.subscription.info;
 
+import model.billing.BillingInfo;
+
 public class SubscriptionInfo {
 
-    private Integer subscriptionCount; // TODO: Better name?
+    private BillingInfo billingInfo;
+    private Integer additionalQuotaCount; // TODO: Better name?
     private Double subscriptionPrice;
     private Integer usageCount;
     private Integer usageQuota;
@@ -12,24 +15,25 @@ public class SubscriptionInfo {
         this.subscriptionPrice = subscriptionPrice;
         this.usageQuota = usageQuota;
         this.usageCount = 0;
-        this.subscriptionCount = 1;
+        this.additionalQuotaCount = 1;
+        this.billingInfo = new BillingInfo();
 
     }
 
     public void renewSubscription(){
-        this.subscriptionCount += 1;
+        this.additionalQuotaCount += 1;
     }
 
     public boolean isQuotaReached(){
-        return usageCount >= usageQuota * subscriptionCount;
+        return usageCount >= usageQuota * (additionalQuotaCount+ 1);
     }
 
     public void incrementUsageCount(){
             this.usageCount += 1;
     }
 
-    public Integer getSubscriptionCount() {
-        return subscriptionCount;
+    public Integer getAdditionalQuotaCount() {
+        return additionalQuotaCount;
     }
 
     public Double getSubscriptionPrice() {

@@ -13,7 +13,7 @@ public class SubscriptionFixedType extends AbstractSubscriptionType {
 
     @Override
     public Double calculateBill() {
-        return subscriptionInfo.getSubscriptionCount() * subscriptionInfo.getSubscriptionPrice();
+        return subscriptionInfo.getAdditionalQuotaCount() * subscriptionInfo.getSubscriptionPrice();
     }
 
 
