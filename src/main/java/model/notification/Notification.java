@@ -12,4 +12,7 @@ public abstract class Notification {
 
     public abstract void send();
 
+    public BusinessUser getSender() {
+        return sender;
+    }
 }

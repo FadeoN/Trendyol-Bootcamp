@@ -1,10 +1,9 @@
 package model.subscription;
 
-import model.subscription.info.SubscriptionInfo;
+import model.exception.QuotaExceededException;
 
 public class SubscriptionFixedType extends AbstractSubscriptionType {
 
-    private SubscriptionInfo subscriptionInfo;
 
     public void renewExceededSubscription() {
         subscriptionInfo.renewSubscription();
@@ -12,8 +11,17 @@ public class SubscriptionFixedType extends AbstractSubscriptionType {
     }
 
     @Override
+    public void incrementUsageCount() {
+        if(subscriptionInfo.isQuotaReached()){
+            renewExceededSubscription();
+            throw new QuotaExceededException();
+        }
+        subscriptionInfo.incrementUsageCount();
+    }
+
+    @Override
     public Double calculateBill() {
-        return subscriptionInfo.getAdditionalQuotaCount() * subscriptionInfo.getSubscriptionPrice();
+        return (subscriptionInfo.getAdditionalQuotaCount() + 1) * subscriptionInfo.getSubscriptionPrice();
     }
 
 

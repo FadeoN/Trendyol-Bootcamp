@@ -1,3 +1,4 @@
+import model.language.Turkish;
 import model.notification.Email;
 import model.notification.Notification;
 import model.notification.NotificationGroupHub;
@@ -19,10 +20,10 @@ public class TrendyolApplication {
     public static void main(String[] args) {
         SubscriptionType subs = new SmsDynamicSubscription(0.10);
 
-        BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1"));
+        BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
         businessUser.setSubscription(subs);
 
-        User user = new User(new UserInfo("Name Surname", "test@email.com", "1"));
+        User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 
 
         Notification notification = new Sms(businessUser, user, "Oku");
@@ -31,8 +32,6 @@ public class TrendyolApplication {
             NotificationService.sendNotification(notification);
 
         }
-
-
 
         BillingService.calculateMonthlyBill(businessUser, subs);
         PaymentService.payDebt(businessUser, 60.);

@@ -8,6 +8,7 @@ import java.util.HashMap;
 public class BillingInfo {
 
     private HashMap<LocalDate, Double> billingDetail = new HashMap<LocalDate, Double>(); // Billing Date, billing amount
+    private LocalDate lastBilling; // Normally there is no need for this variable if db is used in a sorted way.
     private LocalDate lastPayment;
     private Double billingDebt;
 
@@ -26,10 +27,19 @@ public class BillingInfo {
         this.billingDebt = Math.max(billingDebt - paymentAmount, 0);
         this.lastPayment = LocalDate.now();
     }
+    public Double getDebt(){
+        return billingDebt;
+    }
+
+    public Double getLastBillingAmount(){
+        return billingDetail.get(lastBilling);
+    }
 
     public void addNewBill(Double billingAmount){
         /*Check last billing*/
-        billingDetail.put(LocalDate.now(), billingAmount);
+        LocalDate date = LocalDate.now();
+        lastBilling = date;
+        billingDetail.put(date, billingAmount);
         billingDebt += billingAmount;
     }
 

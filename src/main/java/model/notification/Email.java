@@ -1,5 +1,7 @@
 package model.notification;
 
+import model.exception.BlacklistedUserException;
+import model.exception.InactiveSubscriptionException;
 import model.user.BusinessUser;
 import model.user.User;
 
@@ -15,14 +17,10 @@ public class Email extends Notification{
     @Override
     public void send() {
         if(sender.isBlacklisted()){
-            System.out.println("Blacklisted User");
-            // TODO raise Error
-            return;
+            throw new BlacklistedUserException();
         }
         else if(!sender.isEmailSubscriptionActive()){
-            System.out.println("Email Subscription does not exists.");
-            //TODO raise Error
-            return;
+            throw new InactiveSubscriptionException();
         }
 
         sender.getEmailSubscription().incrementUsageCount();

@@ -10,7 +10,7 @@ import java.util.Objects;
 public class NotificationGroup {
 
     private Integer groupID;
-    private BusinessUser sender;
+    private BusinessUser sender; // userid
     private List<User> receiverUsers;
 
     public NotificationGroup(Integer groupID, BusinessUser sender) {

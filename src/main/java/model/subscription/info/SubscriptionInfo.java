@@ -14,10 +14,13 @@ public class SubscriptionInfo {
     public SubscriptionInfo(Double subscriptionPrice, Integer usageQuota){
         this.subscriptionPrice = subscriptionPrice;
         this.usageQuota = usageQuota;
-        this.usageCount = 0;
-        this.additionalQuotaCount = 1;
         this.billingInfo = new BillingInfo();
+        this.resetSubscriptionUsage();
+    }
 
+    public void resetSubscriptionUsage(){
+        this.usageCount = 0;
+        this.additionalQuotaCount = 0;
     }
 
     public void renewSubscription(){

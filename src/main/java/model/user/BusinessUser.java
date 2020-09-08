@@ -1,12 +1,8 @@
 package model.user;
 
 
-import model.notification.Notification;
-import model.notification.NotificationGroup;
 import model.subscription.SubscriptionHub;
 import model.billing.BillingInfo;
-
-import java.util.List;
 
 public class BusinessUser extends SubscriptionHub {
 
@@ -21,6 +17,10 @@ public class BusinessUser extends SubscriptionHub {
 
     public BillingInfo getBillingInfo() {
         return billingInfo;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 
     public boolean isBlacklisted(){
