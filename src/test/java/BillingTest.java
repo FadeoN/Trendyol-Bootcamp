@@ -2,6 +2,7 @@ import model.language.Turkish;
 import model.notification.Notification;
 import model.notification.Sms;
 import model.subscription.AbstractSubscriptionType;
+import model.subscription.types.sms.SmsDynamicSubscription;
 import model.subscription.types.sms.SmsFixedSubscription;
 import model.user.BusinessUser;
 import model.user.User;
@@ -32,7 +33,30 @@ public class BillingTest {
 
         BillingService.calculateMonthlyBill(businessUser, businessUser.getSmsSubscription());
 
-        assertThat(businessUser.getBillingInfo().getLastBillingAmount()).isEqualTo(subs.calculateBill());
+        assertThat(businessUser.getBillingInfo().getLastBillingAmount()).isEqualTo(((AbstractSubscriptionType) subs).getSubscriptionInfo().getSubscriptionPrice() * 2);
+
+    }
+
+    @Test
+    public void it_should_return_last_bill_dynamic_subscription_when_quota_exceeded() {
+        Double exceededPricing = 0.10;
+        SmsDynamicSubscription subs = new SmsDynamicSubscription(exceededPricing);
+
+        BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
+        businessUser.setSubscription(subs);
+
+        User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
+
+
+        Notification notification = new Sms(businessUser, user, "Oku");
+
+        for (int i = 0; i <= subs.getSubscriptionInfo().getUsageQuota()+1; i++) {
+            NotificationService.sendNotification(notification);
+        }
+
+        BillingService.calculateMonthlyBill(businessUser, businessUser.getSmsSubscription());
+
+        assertThat(businessUser.getBillingInfo().getLastBillingAmount()).isEqualTo(((AbstractSubscriptionType) subs).getSubscriptionInfo().getSubscriptionPrice() + 2 * exceededPricing);
 
     }
 

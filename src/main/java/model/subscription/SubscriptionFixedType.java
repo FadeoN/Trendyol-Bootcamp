@@ -12,11 +12,11 @@ public class SubscriptionFixedType extends AbstractSubscriptionType {
 
     @Override
     public void incrementUsageCount() {
+        subscriptionInfo.incrementUsageCount();
         if(subscriptionInfo.isQuotaReached()){
             renewExceededSubscription();
             throw new QuotaExceededException();
         }
-        subscriptionInfo.incrementUsageCount();
     }
 
     @Override

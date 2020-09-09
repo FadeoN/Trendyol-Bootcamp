@@ -21,4 +21,20 @@ public class Turkish implements Language {
     public void logSubscriptionAlreadyExistsException() {
         System.out.println("Halihazırda paket bulunmaktadır.");
     }
+
+    @Override
+    public void logEmptyNotificationGroupException() {
+        System.out.println("Grupa kayıtlı üye bulunmamaktadır.");
+    }
+
+    @Override
+    public void logNotificationGroupNotFoundException() {
+        System.out.println("Notifikasyon grubu bulunamadı.");
+
+    }
+
+    @Override
+    public void logNotificationGroupNotInitalizedException() {
+        System.out.println("Notifikasyon grubu başlatılmadı..");
+    }
 }

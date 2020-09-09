@@ -1,9 +1,12 @@
 package model.notification;
 
+import model.exception.EmptyNotificationGroupException;
+import model.exception.NotificationGroupNotInitalizedException;
 import model.user.BusinessUser;
 import model.user.User;
 import service.NotificationService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,10 +28,16 @@ public class NotificationGroup {
     }
 
     public void attach(User user){
+        if(receiverUsers == null){
+            receiverUsers = new ArrayList<>();
+        }
         this.receiverUsers.add(user);
     }
 
     public void sendEmail(String content){
+        if(!isReceiversValid()){
+            return;
+        }
         for (User receiver : receiverUsers) {
             Notification notification = new Email(sender, receiver, content);
             NotificationService.sendNotification(notification);
@@ -36,10 +45,24 @@ public class NotificationGroup {
     }
 
     public void sendSms(String content){
+        if(!isReceiversValid()){
+            return;
+        }
         for (User receiver : receiverUsers) {
             Notification notification = new Sms(sender, receiver, content);
             NotificationService.sendNotification(notification);
         }
+    }
+
+    public boolean  isReceiversValid(){
+        if(receiverUsers == null){
+            throw new NotificationGroupNotInitalizedException();
+        }
+        if(receiverUsers.isEmpty()){
+            throw new EmptyNotificationGroupException();
+        }
+
+        return true;
     }
 
     public Integer getGroupID() {
@@ -48,6 +71,10 @@ public class NotificationGroup {
 
     public BusinessUser getSender() {
         return sender;
+    }
+
+    public List<User> getReceiverUsers() {
+        return receiverUsers;
     }
 
     @Override

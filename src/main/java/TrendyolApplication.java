@@ -1,9 +1,7 @@
 import model.language.Turkish;
-import model.notification.Email;
 import model.notification.Notification;
-import model.notification.NotificationGroupHub;
+import service.NotificationGroupService;
 import model.notification.Sms;
-import model.subscription.types.email.EmailDynamicSubscription;
 import model.user.BusinessUser;
 import model.subscription.types.sms.SmsDynamicSubscription;
 import model.subscription.SubscriptionType;
@@ -37,14 +35,13 @@ public class TrendyolApplication {
         PaymentService.payDebt(businessUser, 60.);
         System.out.println(businessUser.getBillingInfo().toString());
 
-        NotificationGroupHub notificationGroupHub = new NotificationGroupHub();
+        NotificationGroupService notificationGroupService = new NotificationGroupService();
 
         List<User> userGroup = new ArrayList<>();
-        userGroup.add(user);
-        userGroup.add(user);
 
-        notificationGroupHub.createNotificationGroup(businessUser, userGroup);
-        notificationGroupHub.sendSmsUsingGroupID(businessUser, 0, "Sa");
+
+        notificationGroupService.createNotificationGroup(businessUser, userGroup);
+        notificationGroupService.sendSmsUsingGroupID(businessUser, 0, "Sa");
 
     }
 }

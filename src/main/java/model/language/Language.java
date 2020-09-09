@@ -6,5 +6,7 @@ public interface Language {
     void logInactivateSubscriptionException();
     void logQuotaExceededException();
     void logSubscriptionAlreadyExistsException();
-
+    void logEmptyNotificationGroupException();
+    void logNotificationGroupNotFoundException();
+    void logNotificationGroupNotInitalizedException();
 }

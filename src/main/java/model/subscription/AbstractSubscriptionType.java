@@ -7,13 +7,13 @@ public abstract class AbstractSubscriptionType {
 
     protected SubscriptionInfo subscriptionInfo;
 
-    abstract Double calculateBill();
+    public abstract Double calculateBill();
 
     public void incrementUsageCount() {
+        subscriptionInfo.incrementUsageCount();
         if(subscriptionInfo.isQuotaReached()){
             throw new QuotaExceededException();
         }
-        subscriptionInfo.incrementUsageCount();
     }
 
     public SubscriptionInfo getSubscriptionInfo() {
