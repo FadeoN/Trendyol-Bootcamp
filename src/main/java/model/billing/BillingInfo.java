@@ -55,6 +55,19 @@ public class BillingInfo {
         return Duration.between(LocalDate.now().atStartOfDay(), lastPayment.atStartOfDay()).toDays() >= blacklistDays;
     }
 
+    public static double getBlacklistDays() {
+        return blacklistDays;
+    }
+
+    public LocalDate getLastPayment() {
+        return lastPayment;
+    }
+
+    public void setLastPayment(LocalDate lastPayment) {
+        this.lastPayment = lastPayment;
+    }
+
+
     @Override
     public String toString(){
         return "Current Debt: " + billingDebt +  " Last Payment: " + lastPayment;
