@@ -5,8 +5,8 @@ import model.subscription.info.SubscriptionInfo;
 
 public class SmsFixedSubscription extends SubscriptionFixedType implements SmsSubscription{
 
-    public SmsFixedSubscription(){
-        setSubscriptionInfo(new SubscriptionInfo(20., 1000));
+    public SmsFixedSubscription(long id){
+        setSubscriptionInfo(new SubscriptionInfo(id, 20., 1000));
     }
 
 }

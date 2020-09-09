@@ -10,40 +10,68 @@ import model.user.UserInfo;
 import org.junit.jupiter.api.Test;
 import service.BillingService;
 import service.NotificationService;
+import service.SubscriptionService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BillingTest {
 
+    public SubscriptionService subscriptionService = new SubscriptionService();
+
     @Test
-    public void it_should_return_last_bill_fixed_subscription() {
-        SmsFixedSubscription subs = new SmsFixedSubscription();
+    public void it_should_change_billing_debt_when_billed() {
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeFixedSmsPackage(businessUser);
+        AbstractSubscriptionType subs = subscriptionService.getAbstractSubscriptionType(0);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 
 
         Notification notification = new Sms(businessUser, user, "Oku");
 
-        for (int i = 0; i <= subs.getSubscriptionInfo().getUsageQuota(); i++) {
+
+        for (int i = 0; i <= subs.getSubscriptionInfo().getUsageQuota()+1; i++) {
+            NotificationService.sendNotification(notification);
+        }
+
+        Double billAmount = subs.calculateBill();
+        BillingService.calculateMonthlyBill(businessUser, businessUser.getSmsSubscription());
+
+        assertThat(businessUser.getBillingInfo().getDebt()).isEqualTo(billAmount);
+
+    }
+
+    @Test
+    public void it_should_return_last_bill_fixed_subscription() {
+
+        BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
+        subscriptionService.subscribeFixedSmsPackage(businessUser);
+        AbstractSubscriptionType subs = subscriptionService.getAbstractSubscriptionType(0);
+
+        User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
+
+
+        Notification notification = new Sms(businessUser, user, "Oku");
+
+
+        for (int i = 0; i <= subs.getSubscriptionInfo().getUsageQuota()+1; i++) {
             NotificationService.sendNotification(notification);
         }
 
         BillingService.calculateMonthlyBill(businessUser, businessUser.getSmsSubscription());
 
-        assertThat(businessUser.getBillingInfo().getLastBillingAmount()).isEqualTo(((AbstractSubscriptionType) subs).getSubscriptionInfo().getSubscriptionPrice() * 2);
+        assertThat(businessUser.getBillingInfo().getLastBillingAmount()).isEqualTo(subs.getSubscriptionInfo().getSubscriptionPrice() * 2);
 
     }
 
+
     @Test
     public void it_should_return_last_bill_dynamic_subscription_when_quota_exceeded() {
-        Double exceededPricing = 0.10;
-        SmsDynamicSubscription subs = new SmsDynamicSubscription(exceededPricing);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeDynamicSmsPackage(businessUser);
+        AbstractSubscriptionType subs = subscriptionService.getAbstractSubscriptionType(0);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 
@@ -56,16 +84,15 @@ public class BillingTest {
 
         BillingService.calculateMonthlyBill(businessUser, businessUser.getSmsSubscription());
 
-        assertThat(businessUser.getBillingInfo().getLastBillingAmount()).isEqualTo(((AbstractSubscriptionType) subs).getSubscriptionInfo().getSubscriptionPrice() + 2 * exceededPricing);
+        assertThat(businessUser.getBillingInfo().getLastBillingAmount()).isEqualTo((subs).getSubscriptionInfo().getSubscriptionPrice() + 2 * 0.10);
 
     }
 
     @Test
     public void it_should_reset_subscription_usage() {
-        SmsFixedSubscription subs = new SmsFixedSubscription();
-
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeFixedSmsPackage(businessUser);
+        AbstractSubscriptionType subs = subscriptionService.getAbstractSubscriptionType(0);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 
@@ -84,10 +111,9 @@ public class BillingTest {
 
     @Test
     public void it_should_reset_additional_quota() {
-        SmsFixedSubscription subs = new SmsFixedSubscription();
-
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeFixedSmsPackage(businessUser);
+        AbstractSubscriptionType subs = subscriptionService.getAbstractSubscriptionType(0);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 

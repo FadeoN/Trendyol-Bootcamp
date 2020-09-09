@@ -11,6 +11,7 @@ import model.subscription.types.sms.SmsDynamicSubscription;
 import model.user.BusinessUser;
 import model.user.User;
 import model.user.UserInfo;
+import service.SubscriptionService;
 
 
 import java.util.ArrayList;
@@ -21,12 +22,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class NotificationGroupTest {
 
+    public SubscriptionService subscriptionService = new SubscriptionService();
+
+
     @Test
     public void it_should_increment_id_when_notification_group_created(){
-        SubscriptionType subs = new SmsDynamicSubscription(0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeDynamicSmsPackage(businessUser);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 
@@ -42,10 +45,9 @@ public class NotificationGroupTest {
 
     @Test
     public void it_should_throw_notification_not_found_when_group_does_not_exists(){
-        SubscriptionType subs = new SmsDynamicSubscription(0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeDynamicSmsPackage(businessUser);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 
@@ -61,10 +63,8 @@ public class NotificationGroupTest {
 
     @Test
     public void it_should_add_user_to_notification_group(){
-        SubscriptionType subs = new SmsDynamicSubscription(0.10);
-
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeDynamicSmsPackage(businessUser);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 
@@ -81,10 +81,9 @@ public class NotificationGroupTest {
 
     @Test
     public void it_should_send_sms_to_notification_group(){
-        SubscriptionType subs = new SmsDynamicSubscription(0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeDynamicSmsPackage(businessUser);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 
@@ -104,10 +103,9 @@ public class NotificationGroupTest {
 
     @Test
     public void it_should_send_email_to_notification_group(){
-        SubscriptionType subs = new EmailDynamicSubscription(0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
-        businessUser.setSubscription(subs);
+        subscriptionService.subscribeDynamicEmailPackage(businessUser);
 
         User user = new User(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
 

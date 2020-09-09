@@ -20,7 +20,7 @@ public class SubscriptionHubTest {
 
     @Test
     public void it_should_set_sms_subscription() {
-        SubscriptionType subs = new SmsDynamicSubscription(0.10);
+        SubscriptionType subs = new SmsDynamicSubscription(0,0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
         businessUser.setSubscription(subs);
@@ -30,7 +30,7 @@ public class SubscriptionHubTest {
 
     @Test
     public void it_should_set_email_subscription() {
-        SubscriptionType subs = new EmailDynamicSubscription(0.10);
+        SubscriptionType subs = new EmailDynamicSubscription(0,0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
         businessUser.setSubscription(subs);
@@ -40,7 +40,7 @@ public class SubscriptionHubTest {
 
     @Test
     public void it_should_return_given_email_subs_quota_full() {
-        EmailDynamicSubscription subs = new EmailDynamicSubscription(0.10);
+        EmailDynamicSubscription subs = new EmailDynamicSubscription(0,0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
         businessUser.setSubscription(subs);
@@ -59,7 +59,7 @@ public class SubscriptionHubTest {
 
     @Test
     public void it_should_return_given_sms_subs_quota_full() {
-        SmsDynamicSubscription subs = new SmsDynamicSubscription(0.10);
+        SmsDynamicSubscription subs = new SmsDynamicSubscription(0,0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
         businessUser.setSubscription(subs);
@@ -79,7 +79,7 @@ public class SubscriptionHubTest {
 
     @Test
     public void it_should_increment_usage_count_twice() {
-        SmsDynamicSubscription subs = new SmsDynamicSubscription(0.10);
+        SmsDynamicSubscription subs = new SmsDynamicSubscription(0,0.10);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
         businessUser.setSubscription(subs);
@@ -98,7 +98,7 @@ public class SubscriptionHubTest {
 
     @Test
     public void it_should_renew_subscription_when_quota_exceeded() {
-        SmsFixedSubscription subs = new SmsFixedSubscription();
+        SmsFixedSubscription subs = new SmsFixedSubscription(0);
 
         BusinessUser businessUser = new BusinessUser(new UserInfo("Name Surname", "test@email.com", "1", new Turkish()));
         businessUser.setSubscription(subs);

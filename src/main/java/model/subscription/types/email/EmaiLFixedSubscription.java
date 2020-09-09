@@ -5,8 +5,8 @@ import model.subscription.info.SubscriptionInfo;
 
 public class EmaiLFixedSubscription extends SubscriptionFixedType implements EmailSubscription{
 
-    public EmaiLFixedSubscription(){
-        setSubscriptionInfo(new SubscriptionInfo(20., 1000));
+    public EmaiLFixedSubscription(long id){
+        setSubscriptionInfo(new SubscriptionInfo(id,20., 1000));
     }
 
 }

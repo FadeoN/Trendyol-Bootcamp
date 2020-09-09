@@ -5,10 +5,10 @@ import model.subscription.info.SubscriptionInfo;
 
 public class SmsDynamicSubscription extends SubscriptionDynamicType implements SmsSubscription{
 
-    public SmsDynamicSubscription(Double exceededPricing){
+    public SmsDynamicSubscription(long id, Double exceededPricing){
         setExceededPricing(exceededPricing);
 
-        setSubscriptionInfo(new SubscriptionInfo(30., 2000));
+        setSubscriptionInfo(new SubscriptionInfo(id, 30., 2000));
     }
 
 

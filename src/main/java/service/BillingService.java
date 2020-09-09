@@ -11,7 +11,7 @@ public class BillingService {
 
     public static void calculateMonthlyBill(BusinessUser user, SubscriptionType subscription){
         try{
-            user.getBillingInfo().addNewBill(subscription.calculateBill());
+            user.getBillingInfo().addNewBill(subscription);
             ((AbstractSubscriptionType) subscription).getSubscriptionInfo().resetSubscriptionUsage();
         }
         catch(LocalizedException localException){

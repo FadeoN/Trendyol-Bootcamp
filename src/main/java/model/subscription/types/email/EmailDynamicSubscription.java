@@ -6,10 +6,10 @@ import model.subscription.info.SubscriptionInfo;
 public class EmailDynamicSubscription extends SubscriptionDynamicType implements EmailSubscription {
 
 
-    public EmailDynamicSubscription(Double exceededPricing){
+    public EmailDynamicSubscription(long id, Double exceededPricing){
         setExceededPricing(exceededPricing);
 
-        setSubscriptionInfo(new SubscriptionInfo(30., 2000));
+        setSubscriptionInfo(new SubscriptionInfo(id, 30., 2000));
     }
 
 
