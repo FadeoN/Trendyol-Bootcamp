@@ -1,7 +1,7 @@
 package service;
 
-import model.exception.LocalizedException;
-import model.logger.ExceptionLogger;
+import exception.LocalizedException;
+import logger.ExceptionLogger;
 import model.subscription.AbstractSubscriptionType;
 import model.subscription.SubscriptionType;
 import model.user.BusinessUser;

@@ -1,4 +1,4 @@
-import model.language.Turkish;
+import language.Turkish;
 import model.notification.Notification;
 import model.notification.Sms;
 import model.subscription.AbstractSubscriptionType;

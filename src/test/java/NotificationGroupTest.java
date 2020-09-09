@@ -1,13 +1,10 @@
-import model.exception.NotificationGroupNotFoundException;
-import model.language.Turkish;
+import exception.NotificationGroupNotFoundException;
+import language.Turkish;
 import model.notification.NotificationGroup;
 
 import org.junit.jupiter.api.Test;
 import service.NotificationGroupService;
 import model.subscription.AbstractSubscriptionType;
-import model.subscription.SubscriptionType;
-import model.subscription.types.email.EmailDynamicSubscription;
-import model.subscription.types.sms.SmsDynamicSubscription;
 import model.user.BusinessUser;
 import model.user.User;
 import model.user.UserInfo;

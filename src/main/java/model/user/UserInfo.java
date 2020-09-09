@@ -1,6 +1,6 @@
 package model.user;
 
-import model.language.Language;
+import language.Language;
 
 public class UserInfo {
 

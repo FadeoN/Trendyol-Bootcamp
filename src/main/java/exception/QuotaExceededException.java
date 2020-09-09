@@ -1,7 +1,7 @@
-package model.exception;
+package exception;
 
 
-import model.language.Language;
+import language.Language;
 
 public class QuotaExceededException  extends LocalizedException{
 

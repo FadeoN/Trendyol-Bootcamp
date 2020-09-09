@@ -1,9 +1,7 @@
-import model.language.Turkish;
+import language.Turkish;
 import model.notification.Notification;
 import model.notification.Sms;
 import model.subscription.AbstractSubscriptionType;
-import model.subscription.types.sms.SmsDynamicSubscription;
-import model.subscription.types.sms.SmsFixedSubscription;
 import model.user.BusinessUser;
 import model.user.User;
 import model.user.UserInfo;

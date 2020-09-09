@@ -1,8 +1,8 @@
 package service;
 
-import model.exception.LocalizedException;
-import model.exception.NotificationGroupNotFoundException;
-import model.logger.ExceptionLogger;
+import exception.LocalizedException;
+import exception.NotificationGroupNotFoundException;
+import logger.ExceptionLogger;
 import model.notification.NotificationGroup;
 import model.user.BusinessUser;
 import model.user.User;

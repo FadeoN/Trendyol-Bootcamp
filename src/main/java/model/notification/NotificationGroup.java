@@ -1,7 +1,7 @@
 package model.notification;
 
-import model.exception.EmptyNotificationGroupException;
-import model.exception.NotificationGroupNotInitalizedException;
+import exception.EmptyNotificationGroupException;
+import exception.NotificationGroupNotInitalizedException;
 import model.user.BusinessUser;
 import model.user.User;
 import service.NotificationService;

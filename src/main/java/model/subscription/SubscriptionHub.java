@@ -1,6 +1,6 @@
 package model.subscription;
 
-import model.exception.SubscriptionAlreadyExistsException;
+import exception.SubscriptionAlreadyExistsException;
 import model.subscription.types.email.EmailSubscription;
 import model.subscription.types.sms.SmsSubscription;
 

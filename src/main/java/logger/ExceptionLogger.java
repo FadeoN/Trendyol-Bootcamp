@@ -1,7 +1,7 @@
-package model.logger;
+package logger;
 
-import model.exception.LocalizedException;
-import model.language.Language;
+import exception.LocalizedException;
+import language.Language;
 
 public class ExceptionLogger {
 

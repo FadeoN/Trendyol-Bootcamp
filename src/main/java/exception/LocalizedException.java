@@ -1,6 +1,6 @@
-package model.exception;
+package exception;
 
-import model.language.Language;
+import language.Language;
 
 public abstract class LocalizedException extends RuntimeException{
 

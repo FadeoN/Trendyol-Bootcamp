@@ -1,6 +1,6 @@
 package model.subscription;
 
-import model.exception.QuotaExceededException;
+import exception.QuotaExceededException;
 
 public class SubscriptionFixedType extends AbstractSubscriptionType {
 

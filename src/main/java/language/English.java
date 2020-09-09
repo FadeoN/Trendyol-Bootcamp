@@ -1,4 +1,4 @@
-package model.language;
+package language;
 
 public class English implements Language {
 

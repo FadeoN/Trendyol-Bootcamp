@@ -1,7 +1,7 @@
 package model.notification;
 
-import model.exception.BlacklistedUserException;
-import model.exception.InactiveSubscriptionException;
+import exception.BlacklistedUserException;
+import exception.InactiveSubscriptionException;
 import model.user.BusinessUser;
 import model.user.User;
 

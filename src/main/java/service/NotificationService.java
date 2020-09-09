@@ -1,7 +1,7 @@
 package service;
 
-import model.exception.LocalizedException;
-import model.logger.ExceptionLogger;
+import exception.LocalizedException;
+import logger.ExceptionLogger;
 import model.notification.Notification;
 
 public class NotificationService {

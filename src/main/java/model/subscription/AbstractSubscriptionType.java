@@ -1,6 +1,6 @@
 package model.subscription;
 
-import model.exception.QuotaExceededException;
+import exception.QuotaExceededException;
 import model.subscription.info.SubscriptionInfo;
 
 public abstract class AbstractSubscriptionType {
