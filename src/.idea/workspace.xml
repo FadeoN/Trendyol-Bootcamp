@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="00614dc7-b01e-4840-a8ab-a90a2c40c020" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/0/0/00cd9e58b1b0847c6555b81891da23252fa12bbc" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/0/0/00cd9e58b1b0847c6555b81891da23252fa12bbc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/2/4/240ae55948ba794e2d8428f5cdaf36a1e71a4a08" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/2/4/240ae55948ba794e2d8428f5cdaf36a1e71a4a08" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/2/7/27fd26e4e00778bd346c89661ebe163d2f7ae377" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/2/7/27fd26e4e00778bd346c89661ebe163d2f7ae377" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/3/5/35df5b51d3458b11202325d6284ba32232383872" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/3/5/35df5b51d3458b11202325d6284ba32232383872" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/7/4/746b4ce24934f163004e706a5cb929f2f11ec8e7" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/7/4/746b4ce24934f163004e706a5cb929f2f11ec8e7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/8/b/8b3ff3c5b7fbd90a8dc158bdd73cc4a49bac12ed" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/8/b/8b3ff3c5b7fbd90a8dc158bdd73cc4a49bac12ed" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/9/d/9d2024d7ce213f0c0550a9b027fb7e645483459c" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/9/d/9d2024d7ce213f0c0550a9b027fb7e645483459c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/f/9/f9a7bba6d5eeb0ce123062fad54c77ac4e3f6c5f" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/f/9/f9a7bba6d5eeb0ce123062fad54c77ac4e3f6c5f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1hSxKoidWSdI2uWQWjyvVXluuyK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00614dc7-b01e-4840-a8ab-a90a2c40c020" name="Default Changelist" comment="" />
+      <created>1600018233894</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600018233894</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="655" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1600018237658">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600018237658" />
+  </component>
+</project>

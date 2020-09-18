@@ -1,0 +1,13 @@
+track\models\Track$TrackBuilder.class
+track\services\TrackServiceImpl.class
+track\models\Track.class
+track\dtos\TrackDTO.class
+track\models\Artist.class
+track\models\Image.class
+track\TrackApiApplication.class
+track\models\Playlist.class
+track\services\TrackService.class
+track\repository\TrackRepository.class
+track\controllers\TrackController.class
+track\models\TrackFeature.class
+track\models\Album.class
